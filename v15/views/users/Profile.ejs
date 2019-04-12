@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-3">
+            <img src="<%= user.avatar %>"
+            alt="profile image" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-md-8 col-md-4">
+            <blockquote>
+                <p><%= user.firstName + " " + user.lastName %></p> 
+                <!--<small><cite title="Source Title">Gotham, United Kingdom  <i class="glyphicon glyphicon-map-marker"></i></cite></small>-->
+            </blockquote>
+            <p> <i class="glyphicon glyphicon-envelope"></i><a href ="mailto:<%= user.email %>"> <%= user.email %></a>
+                <br> 
+                <div class ="col-md-12">
+                    <h3><%= user.username %>'s campgrounds:</h3>
+                    <ul>
+                    <% campgrounds.forEach(function(campground) { %>
+                        <li><a href ="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
+                    <% }); %>
+                    </ul>
+                </div>
+                <!--<i class="glyphicon glyphicon-gift"></i> January 30, 1974-->
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>
